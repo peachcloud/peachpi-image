@@ -40,6 +40,8 @@ unxz peachpi.img.xz
 ### using `wget`
 
 ```
+mkdir peachpi-2019-02-13
+cd peachpi-2019-02-13
 wget https://peachpi-2019-02-13.hashbase.io/peachpi.img.xz
 unxz peachpi.img.xz
 ```
