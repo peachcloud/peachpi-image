@@ -141,10 +141,10 @@ if you're not sure, run `lsblk` or `sudo fdisk -l` to find the device.
 
 ### connect to Pi
 
-once you're Pi is up and running, you should be able to find it on the network by the `peachpi` hostname.
+once you're Pi is up and running, you should be able to find it on the network by the `peachcloud` hostname.
 
 ```shell
-ssh root@peachpi
+ssh root@peachcloud
 ```
 
 the default password is `password`.
