@@ -1,0 +1,21 @@
+{
+  "name": "peachpi-image",
+  "version": "1.0.0",
+  "description": "Debian image for a Raspberry Pi based PeachCloud",
+  "scripts": {
+    "build": "debian-image-builder --docker --input src --output output --name peachpi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peachcloud/peachpi-image.git"
+  },
+  "author": "PeachCloud",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/peachcloud/peachpi-image/issues"
+  },
+  "homepage": "https://github.com/peachcloud/peachpi-image#readme",
+  "dependencies": {
+    "debian-image-builder": "^1.2.0"
+  }
+}
