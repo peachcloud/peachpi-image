@@ -1,6 +1,6 @@
 # PeachPi image
 
-Debian image for a Raspberry Pi based PeachCloud
+Debian image for a [Raspberry Pi 3 B+](https://www.raspberrypi.org/products/raspberry-pi-3-model-b-plus/) based PeachCloud
 
 with help from [`Debian/raspi3-image-spec`](https://github.com/Debian/raspi3-image-spec)
 
