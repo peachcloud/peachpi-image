@@ -32,7 +32,7 @@ our images are hosted on [hashbase](https://hashbase.io) as compressed `xz` file
 - [`dat`](https://github.com/datproject/dat#installing-the--dat-command-line-tool)
 
 ```shell
-dat clone dat://bd42392225bf15e862fd9c102cedb698cd7e744792de6c804cbf0e13813c8a54 peachpi-2019-02-13
+dat clone dat://peachpi-image-2019-02-13.hashbase.io peachpi-2019-02-13
 cd peachpi-2019-02-13
 unxz peachpi.img.xz
 ```
