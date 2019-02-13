@@ -6,23 +6,54 @@ with help from [`Debian/raspi3-image-spec`](https://github.com/Debian/raspi3-ima
 
 ## table of contents
 
-- [getting started](#getting-started)
-  - [pre-requisites](#pre-requisites)
+- [download image](#download-image)
+  - [using `dat`](#using-dat)
+  - [using `wget`](#using-wget)
+- [build image from source](#build-image-from-source)
   - [download image spec](#download-image-spec)
   - [build image](#build-image)
-  - [configure image](#configure-image)
-    - [setup wireless](#setup-wireless)
-  - [write image to SD card](#write-image-to-SD-card)
-  - [connect to Pi](#connect-to-Pi)
+- [configure image](#configure-image)
+  - [setup wireless](#setup-wireless)
+- [write image to SD card](#write-image-to-SD-card)
+- [connect to Pi](#connect-to-Pi)
 
-## getting started
+## download image
 
-### pre-requisites
+our images are hosted on [hashbase](https://hashbase.io) as compressed `xz` files within a `dat` archive.
+
+**pre-requisites**
+
+- `xz`
+
+### using [`dat`](https://github.com/datproject/dat)
+
+**pre-requisites**
+
+- [`dat`](https://github.com/datproject/dat#installing-the--dat-command-line-tool)
+
+```shell
+dat clone dat://bd42392225bf15e862fd9c102cedb698cd7e744792de6c804cbf0e13813c8a54 peachpi-2019-02-13
+cd peachpi-2019-02-13
+unxz peachpi.img.xz
+```
+
+### using `wget`
+
+```
+wget https://peachpi-2019-02-13.hashbase.io/peachpi.img.xz
+unxz peachpi.img.xz
+```
+
+## build image from source
+
+**pre-requisites**
 
 - Docker
 - Node.js
 
 ### download image spec
+
+clone down the image spec and install the scripts:
 
 ```
 git clone https://github.com/peach-cloud/peachpi-image
@@ -38,11 +69,12 @@ to build the Debian image using [`debian-image-builder`](https://github.com/ahdi
 npm run build
 ```
 
-### configure image
+## configure image
 
 to mount the boot partition to `./mount`:
 
 ```shell
+mkdir -p ./mount
 sudo mount -o loop,offset=$((512 * 2048)) output/peachpi.img ./mount
 ```
 
@@ -60,7 +92,7 @@ when you're done configuring, run
 sudo umount ./mount
 ```
 
-#### setup wireless
+### setup wireless
 
 if you're like @ahdinosaur and need to setup wireless before you boot the PeachPi (because you share internet with your neighbor and they have the router with Ethernet ports), you'll want to configure `wpa_supplicant`.
 
@@ -127,7 +159,7 @@ iface wlan0 inet dhcp
         wpa-psk f0c5a30de1be27b52ddb03d3be764d3cc483e085ba72b2e136588fab16f42624
 ```
 
-### write image to SD card
+## write image to SD card
 
 to write your image to an SD card:
 
@@ -139,7 +171,7 @@ where `/dev/sdX` is the device corresponding to your SD card.
 
 if you're not sure, run `lsblk` or `sudo fdisk -l` to find the device.
 
-### connect to Pi
+## connect to Pi
 
 once you're Pi is up and running, you should be able to find it on the network by the `peachcloud` hostname.
 
